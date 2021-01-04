@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   }
 });
 
-const TopDrawer = ({ navLinks }) => {
+const MobileNav = ({ navLinks }) => {
   const classes = useStyles();
   const [state, setState] = useState({ top: false });
 
@@ -87,4 +87,4 @@ const TopDrawer = ({ navLinks }) => {
     </div>
   );
 };
-export default TopDrawer;
+export default MobileNav;
