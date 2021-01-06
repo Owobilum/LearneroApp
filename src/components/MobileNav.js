@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles({
   list: {
     width: 250,
-    paddingTop: 100
+    paddingTop: 80
   },
   linkText: {
     textDecoration: `none`,

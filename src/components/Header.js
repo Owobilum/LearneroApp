@@ -20,6 +20,9 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import PersonIcon from "@material-ui/icons/Person";
 
 const useStyles = makeStyles((theme) => ({
+  topToolBar: {
+    maxHeight: 30
+  },
   topToolbarContent: {
     display: "flex",
     flexDirection: "row",
@@ -34,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#151515"
   },
   appBar: {
+    position: "relative",
     zIndex: 10000,
     backgroundColor: "#333333"
   },
@@ -104,11 +108,7 @@ const Header = () => {
 
   return (
     <AppBar position="relative" className={classes.appBar}>
-      <Toolbar
-        variant="dense"
-        disableGutters={true}
-        className={classes.topToolBar}
-      >
+      <div className={classes.topToolBar}>
         <Container maxWidth="lg" className={classes.topToolbarContent}>
           <Link to="/">
             <Button
@@ -126,7 +126,7 @@ const Header = () => {
             </Button>
           </Link>
         </Container>
-      </Toolbar>
+      </div>
 
       <Toolbar variant="regular" className={classes.bottomToolBar}>
         <Container maxWidth="lg" className={classes.bottomToolBarContent}>

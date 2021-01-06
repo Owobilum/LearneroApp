@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Modal from "@material-ui/core/Modal";
+import { Modal } from "@material-ui/core";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import IconButton from "@material-ui/core/IconButton";
@@ -9,6 +9,7 @@ import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import { useHistory } from "react-router-dom";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -16,28 +17,60 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center"
   },
-  searchForm: {
-    width: "60%"
+  mobile: {
+    margin: theme.spacing(1),
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    justifyItems: "space-between"
   },
   textField: {
     margin: theme.spacing(1),
-    width: "60%",
-    border: "solid red"
+    width: "50%",
+    display: "flex",
+    flexDirection: "row",
+    justifyItems: "space-between"
   },
   inputbox: {
-    width: "80%"
+    width: "90%",
+    display: "inline",
+    margin: 0
+  },
+  icon: {
+    display: "inline",
+    padding: 0,
+    margin: 0,
+    marginTop: 15,
+    marginLeft: 5,
+    maxWidth: 50,
+    maxHeight: 30,
+    borderRadius: 3,
+    backgroundColor: "red"
   }
 }));
 
 export default function SearchModal() {
   const history = useHistory();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [open, setOpen] = useState(true);
+  const matches = useMediaQuery("(min-width:600px)");
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
 
   const handleClose = () => {
     setOpen(false);
     history.go(-1);
   };
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+  };
+
+  const handleSubmit = () => {
+    return;
+  };
+
+  let searchBox = matches ? classes.textField : classes.mobile;
 
   return (
     <div>
@@ -54,25 +87,24 @@ export default function SearchModal() {
         }}
       >
         <Fade in={open}>
-          <FormControl className={classes.textField}>
-            <form>
-              <InputLabel htmlFor="standard-adornment-password">
-                Search
-              </InputLabel>
-              <Input
-                className={classes.inputbox}
-                id="standard-adornment-password"
-                type="text"
-                onChange={null}
-              />
-              <IconButton
-                aria-label="search term"
-                onClick={null}
-                onMouseDown={null}
-              >
-                <SearchIcon color="primary" />
-              </IconButton>
-            </form>
+          <FormControl className={searchBox}>
+            <InputLabel htmlFor="standard-search">Search</InputLabel>
+            <Input
+              className={classes.inputbox}
+              name="searchTerm"
+              id="standard-search"
+              type="text"
+              value={searchTerm}
+              onChange={handleChange}
+            />
+            <IconButton
+              aria-label="search term"
+              onClick={handleSubmit}
+              onMouseDown={null}
+              className={classes.icon}
+            >
+              <SearchIcon color="primary" />
+            </IconButton>
           </FormControl>
         </Fade>
       </Modal>
