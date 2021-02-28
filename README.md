@@ -7,7 +7,7 @@ rebuilt with React JS.
 
 ## Technologies
 
-A list of technologies used within the sensational project :
+A list of technologies used within the project :
 
 - [react](https://www.npmjs.com/package/react): Version 17.0.0.0
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom): Version 5.2.0
