@@ -5,7 +5,8 @@ import { Grid, Container } from "@material-ui/core";
 const useStyles = makeStyles({
   root: {
     width: "100%",
-    backgroundColor: "#151515"
+    // backgroundColor: "#151515"
+    backgroundColor: "green"
   },
   hero: {
     width: "100%"
