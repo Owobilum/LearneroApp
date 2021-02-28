@@ -55,7 +55,7 @@ export default function RecentCourses() {
       >
         <Grid item>
           <Typography variant="h2" color="secondary">
-            Recent Courses
+            Recent Courses Just for You
           </Typography>
         </Grid>
       </Grid>
