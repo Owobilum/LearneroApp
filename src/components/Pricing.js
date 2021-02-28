@@ -41,7 +41,7 @@ export default function Pricing() {
       >
         <Grid item>
           <Typography variant="h2" color="secondary">
-            Pricing
+            New Prices
           </Typography>
         </Grid>
       </Grid>
