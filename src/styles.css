@@ -3,6 +3,8 @@
   width: 100%;
   padding: 0;
   margin: 0;
+  background-image: 'linear-gradient(to right, #e78946, #d64a2b)',
+
 }
 html {
   box-sizing: border-box;
@@ -27,8 +29,14 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #9932cc;
+  /* color: #F7BB37; */
+  /* background-color: #DC6035; */
+  background-color: transparent;
 }
+/* a:hover {
+  color: #9932cc;
+} */
+
 
 
 

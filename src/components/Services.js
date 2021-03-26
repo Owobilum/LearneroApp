@@ -1,68 +1,138 @@
 import React from "react";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  CardHeader,
+  Button,
+  Grid,
+  Container,
+  Typography,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid } from "@material-ui/core";
+import { Link } from "react-router-dom";
+const useStyles = makeStyles((theme) => ({
 
-const useStyles = makeStyles({
-  root: {
+  container: {
     maxWidth: "100%",
-    paddingTop: 50,
-    paddingBottom: 50,
-    paddingLeft: "10%",
-    paddingRight: "10%",
-    backgroundColor: "#1A1A1A"
+    paddingTop: 60,
+    paddingBottom: 60,
+    backgroundColor: "#D5472A",
   },
-  item: {
-    width: 128,
-    height: 128
+  title:{
+    fontWeight: "bold",
+    textAlign: "center"
   },
-  img: {
-    margin: "auto",
-    display: "block",
-    maxWidth: "100%",
-    maxHeight: "100%"
+  card: {
+    maxWidth: 400,
+    transition: theme.transitions.create(["transform"], {
+      duration: theme.transitions.duration.standard
+    }),
+    "&:hover": {
+      transform: "scale(1.03)"
+    }
+  },
+  heading:{
+    textAlign: "center",
+    margin: "20px 4px",
+    color: "#fff"
+  },
+  headingCaption: {
+    textAlign: "center",
+    margin: "20px 4px",
+    color: "lightgrey",
+    marginBottom: 60
+  },
+  grid:{
+    border: 'solid red',
+    maxWidth: '100%'
+  },
+  gridItem:{
+    border: 'solid red',
+    width: 400
   }
-});
 
-function Services() {
+}));
+
+export default function Services() {
   const classes = useStyles();
-  return (
-    <div className={classes.root}>
-      <Grid
-        container
-        direction="row"
-        justify="space-around"
-        alignItems="center"
-      >
-        <Grid item xs={6} sm={3} className={classes.item}>
-          <img
-            className={classes.img}
-            alt="service"
-            src="https://uploads.codesandbox.io/uploads/user/1a5985a1-0a7f-42b3-81c2-3703197c8d42/8r_N-service1.png"
-          />
-        </Grid>
-        <Grid item xs={6} sm={3} className={classes.item}>
-          <img
-            className={classes.img}
-            alt="service"
-            src="https://uploads.codesandbox.io/uploads/user/1a5985a1-0a7f-42b3-81c2-3703197c8d42/D9ZE-service2.png"
-          />
-        </Grid>
-        <Grid item xs={6} sm={3} className={classes.item}>
-          <img
-            className={classes.img}
-            alt="service"
-            src="https://uploads.codesandbox.io/uploads/user/1a5985a1-0a7f-42b3-81c2-3703197c8d42/TXDB-service3.png"
-          />
-        </Grid>
-        <Grid item xs={6} sm={3} className={classes.item}>
-          <img
-            className={classes.img}
-            alt="service"
-            src="https://uploads.codesandbox.io/uploads/user/1a5985a1-0a7f-42b3-81c2-3703197c8d42/CKOw-service4.png"
-          />
-        </Grid>
+
+  // SERVICES CARDS
+  const servicesData = [
+
+    {
+      title: "CARD PAYMENTS",
+      content: "Digital business knows no borders and its financial infrastructure has to be super flexible to keep in tune with innovations. This is why accelerates solution supports both offline and online card payments services. The online aspects allow for businesses to receive card payments on their website or via payment links while the offline aspect provides physical POS terminals to businesses and mobile money agents to bridge the transactional payment gap of money collections, in terms of cash out, transfers,withdrawals, and payment for every day goods and services."
+    },
+    {
+      title: "USSD PAYMENTS",
+      content: "On Accelerate, the USSD codes of all commercial banks are aggregated and this makes it convenient for your customers to pay for goods and services using their bank’sUSSD codes. USSD technology is harmonious with all GSM phones and does not require internet data."
+    },
+    {
+      title: "BANK TRANSFER",
+      content: "In the bank transfer model, a unique account number is generated for every transaction which allows customers to transfer funds to that account number for goods and services. The Merchant does not have to wait for a bank alert as Merchant receives a notification immediately. At a specified time, Merchant account is settled appropriately."
+    },
+    {
+      title: "CASHOUT VIA USSD",
+      content: "Did you know customers can collect cash from their bank accounts at location without their ATM cards? Yes! All they need are their banks’ specific USSD codes.This feature solves a major financial challenge of cash withdrawals for customers who do not own bank cards. Also bypasses the technicalities and network dependence ofPOS devices."
+    },
+  ];
+
+  const serviceCards = servicesData.map((service, index) => (
+    <React.Fragment key={service.title + index}>
+      <Grid item xs={12} sm={6} className={classes.grid}>
+          <Link to="/">
+            <Card
+              className={classes.card}
+              style={{
+                maxWidth: 400,
+                height: "100%",
+                paddingBottom: 32,
+                borderRadius: 10
+              }}
+            >
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h6"
+                  className={classes.title}
+                >
+                  {service.title}
+                </Typography>
+                <Typography variant="body1" component="h2" color="textSecondary">
+                  {service.content}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Link>
       </Grid>
-    </div>
+    </React.Fragment>
+  ));
+
+  return (
+      <div className={classes.container}>
+        <Typography variant="h6" className={classes.heading}>OUR SERVICES</Typography>
+        <Typography variant="h5" className={classes.heading}>Our Core Services</Typography>
+        <Typography variant="body1" className={classes.headingCaption} color="textSecondary">We offer the following services.</Typography>
+
+
+        {/* <Grid
+          container
+          direction="row"
+          justify="space-around"
+          alignItems="stretch"
+          spacing={3}
+        > */}
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={2}
+          className={classes.grid}
+        >
+          {serviceCards}
+        </Grid>
+      </div> 
   );
 }
-export default Services;

@@ -57,9 +57,9 @@ const MobileNav = ({ navLinks }) => {
             </ListItem>
           </Link>
         ))}
-        <Link to="/search" className={classes.searchIcon}>
+        {/* <Link to="/search" className={classes.searchIcon}>
           <SearchIcon color="primary" />
-        </Link>
+        </Link> */}
       </List>
     </div>
   );

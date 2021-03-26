@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Grid, Button, Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
-import CourseCards from "./CourseCards";
+import CourseCards from "./FeatureCards";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -53,11 +53,11 @@ export default function RecentCourses() {
         justify="center"
         alignItems="center"
       >
-        <Grid item>
+        {/* <Grid item>
           <Typography variant="h2" color="secondary">
             Recent Courses Just for You
           </Typography>
-        </Grid>
+        </Grid> */}
       </Grid>
       <Divider className={classes.divider} variant="middle" />
       <Container maxWidth="lg">
