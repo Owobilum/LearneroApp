@@ -20,7 +20,7 @@ A list of technologies used within the project :
 
 ## Contributing
 
-Please open an issue first to discuss what you would like to change.
+<!-- Please open an issue first to discuss what you would like to change. -->
 
 Please make sure to update tests as appropriate.
 
